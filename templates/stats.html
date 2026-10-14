@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Statistika · STEP Blog{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Statistika</h1>
+    <p>Blog haqqında qısa rəqəmlər.</p>
+</section>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <span>{{ posts|length }}</span>
+        <p>Post</p>
+    </div>
+    <div class="stat-card">
+        <span>{{ categories|length }}</span>
+        <p>Kateqoriya</p>
+    </div>
+</div>
+{% endblock %}

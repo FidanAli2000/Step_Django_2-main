@@ -1,0 +1,13 @@
+<nav class="navbar">
+    <div class="container navbar-inner">
+        <a class="brand" href="{% url 'blog:post_list' %}">STEP Blog</a>
+        <div class="nav-links">
+            <a href="{% url 'blog:post_list' %}" {% if request.path == '/' or request.path == '/posts/' %}class="active"{% endif %}>Postlar</a>
+            <a href="{% url 'blog:category_list' %}" {% if '/categories/' in request.path %}class="active"{% endif %}>Kateqoriyalar</a>
+            <a href="{% url 'blog:latest' %}" {% if request.path == '/latest/' %}class="active"{% endif %}>Son postlar</a>
+            <a href="{% url 'blog:stats' %}" {% if request.path == '/stats/' %}class="active"{% endif %}>Statistika</a>
+            <a href="{% url 'blog:about' %}" {% if request.path == '/about/' %}class="active"{% endif %}>Haqqımızda</a>
+            <a href="{% url 'blog:contact' %}" {% if request.path == '/contact/' %}class="active"{% endif %}>Əlaqə</a>
+        </div>
+    </div>
+</nav>

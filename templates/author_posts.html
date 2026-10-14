@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}@{{ author }} postları · STEP Blog{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>@{{ author }} müəllifinin postları</h1>
+</section>
+
+<div class="cards">
+    {% for post in posts %}
+        {% include "partials/_post_card.html" with post=post %}
+    {% empty %}
+        <p>Bu müəllifin hələ postu yoxdur.</p>
+    {% endfor %}
+</div>
+{% endblock %}

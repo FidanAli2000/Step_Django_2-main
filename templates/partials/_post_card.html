@@ -1,0 +1,12 @@
+<article class="post-card">
+    <h2><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h2>
+    <div class="meta">
+        <a href="{% url 'blog:author_posts' post.author %}">@{{ post.author }}</a>
+        <span>·</span>
+        <a href="{% url 'blog:category_detail' post.category %}">{{ post.category }}</a>
+        <span>·</span>
+        <span>{{ post.created_at|date:"d.m.Y" }}</span>
+    </div>
+    <p>{{ post.content|truncatewords:22 }}</p>
+    <a class="read-more" href="{% url 'blog:post_detail' post.id %}">Davamını oxu →</a>
+</article>

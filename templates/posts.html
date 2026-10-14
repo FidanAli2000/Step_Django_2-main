@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Postlar · STEP Blog{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Bütün postlar</h1>
+    <p>STEP Blog-da yayımlanan yazılar.</p>
+</section>
+
+<div class="cards">
+    {% for post in posts %}
+        {% include "partials/_post_card.html" with post=post %}
+    {% empty %}
+        <p>Hələ post yoxdur.</p>
+    {% endfor %}
+</div>
+{% endblock %}

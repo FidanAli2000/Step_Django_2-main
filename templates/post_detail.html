@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} · STEP Blog{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+    <h1>{{ post.title }}</h1>
+    <div class="meta">
+        <a href="{% url 'blog:author_posts' post.author %}">@{{ post.author }}</a>
+        <span>·</span>
+        <a href="{% url 'blog:category_detail' post.category %}">{{ post.category }}</a>
+        <span>·</span>
+        <span>{{ post.created_at|date:"d.m.Y" }}</span>
+        <span>·</span>
+        <span>{{ post.content|wordcount }} söz</span>
+    </div>
+    <p>{{ post.content }}</p>
+</article>
+{% endblock %}

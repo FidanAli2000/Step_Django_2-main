@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Son postlar · STEP Blog{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <h1>Son postlar</h1>
+    <p>Ən son yayımlanan 3 post.</p>
+</section>
+
+<ol class="latest-list">
+    {% for post in posts %}
+        <li>
+            <span class="counter">{{ forloop.counter }}.</span>
+            <div>
+                <a href="{% url 'blog:post_detail' post.id %}"><strong>{{ post.title }}</strong></a>
+                <div class="meta">{{ post.created_at|date:"d.m.Y" }}</div>
+            </div>
+        </li>
+    {% empty %}
+        <li>Hələ post yoxdur.</li>
+    {% endfor %}
+</ol>
+{% endblock %}
